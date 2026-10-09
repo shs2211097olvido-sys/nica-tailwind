@@ -1,61 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @custom-variant dark (&:where(.dark, .dark *));
+</style>
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <h1>Nica Olvido</h1>
-    <button id="switch">Switch</button>
+<body
+    class="min-h-screen bg-white text-slate-900 text-center transition-colors duration-500 dark:bg-slate-950 dark:text-white">
+    <h1 class="text-center text-[75px] text-blue-500">
+        Nica Olvido
+    </h1>
 
-    <header>
-        <nav>
-            <span>@potato</span>
-            <ul>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact us</a></li>
+    <h2 class="text-center text-blue-500">
+        Hello World
+    </h2>
+
+    <button id="toggledark"
+        class="rounded-lg border border-gray-300 bg-gray px-6 py-3 text-black dark:border-slate-800 dark:bg-slate-900 dark:text-white">
+        Toggle
+    </button>
+
+    <header class="mt-8">
+        <nav
+            class="mx-[50px] flex items-center justify-between max-[600px]:mx-4 max-[600px]:flex-col max-[600px]:gap-4">
+
+            <span class="text-blue-400">@NicaOlvido</span>
+
+            <ul class="flex list-none gap-5 p-0 max-[600px]:flex-col max-[600px]:text-center">
+                <li><a class="transition-colors hover:text-orange-400" href="#projects">Projects</a></li>
+                <li><a class="transition-colors hover:text-orange-400" href="#services">Services</a></li>
+                <li><a class="transition-colors hover:text-orange-400" href="#contact">Contact Me</a></li>
             </ul>
+
         </nav>
     </header>
 
-    <main>
-        <section id="projects">
-            <h2 class="projects">My Projects</h2>
-            <p>My Portfolio
+    <main class="m-[50px] flex flex-wrap gap-[30px] p-[30px] max-[600px]:m-2 max-[600px]:p-2">
+
+        <section id="projects"
+            class="min-w-[280px] flex-1 border border-gray-300 bg-white p-5 text-slate-900 transition-colors duration-500 dark:border-slate-800 dark:bg-slate-900 dark:text-white">
+            <h2 class="mb-3 text-xl text-blue-400">My Projects</h2>
+            <p>
+                Personal portfolio, payroll system, company website,
+                startup website, and compliance monitoring system.
+            </p>
         </section>
-
-        <section id="services">
-            <h2 class="services">My Services</h2>
-            <p>Website Creation, System Creation, AI Automation, Database Management, Project Management, Systems
-                Analyst</p>
+        <section id="services"
+            class="min-w-[280px] flex-1 border border-gray-300 bg-white p-5 text-slate-900 transition-colors duration-500 dark:border-slate-800 dark:bg-slate-900 dark:text-white">
+            <h2 class="mb-3 text-xl text-blue-400">My Services</h2>
+            <p>
+                Website Creation, System Creation, AI Automation,
+                Database Management, Project Management, Systems Analyst.
+            </p>
         </section>
+        <section id="projects"
+            class="min-w-[280px] flex-1 border border-gray-300 bg-white p-5 text-slate-900 transition-colors duration-500 dark:border-slate-800 dark:bg-slate-900 dark:text-white">
 
-        <section id="contact">
-            <h2 class="contact">Let's build together!</h2>
-            <form action="#">
-                <!-- Name -->
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+            <h2 class="mb-4 text-xl text-blue-400">Let's build together!</h2>
 
-                <!-- Email -->
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" required>
+            <form class="flex flex-col gap-3" action="#" method="get">
 
-                <!-- Message -->
-                <label for="message">Message</label>
-                <textarea name="message" id="message" rows="5" required></textarea>
+                <label for="name" class="text-blue-900">Name</label>
+                <input class="rounded border border-blue-700 bg-neutral-500 px-3 py-2 text-blue-100" type="text"
+                    id="name" name="name" required>
 
-                <!-- Submit -->
-                <button type="submit">Send Message</button>
+                <label for="email" class="text-blue-900">Email</label>
+                <input class="rounded border border-blue-700 bg-neutral-500 px-3 py-2 text-blue-100" type="email"
+                    id="email" name="email" required>
+
+                <label for="message" class="text-blue-900">Message</label>
+                <textarea class="rounded border border-blue-700 bg-neutral-500 px-3 py-2 text-blue-100" id="message"
+                    name="message" rows="5" required></textarea>
+
+                <button class="rounded-lg bg-blue-500 px-6 py-3 text-neutral-950 transition-colors hover:bg-blue-400"
+                    type="submit">
+                    Send Message
+                </button>
+
             </form>
         </section>
+
     </main>
-    <script src="script.js"></script>
+
+    <script>
+        const tb = document.querySelector("#toggledark");
+        const html = document.querySelector("html");
+
+        tb.addEventListener("click", function () {
+            html.classList.toggle("dark");
+        });
+    </script>
+
 </body>
 
 </html>
